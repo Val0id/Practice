@@ -106,7 +106,7 @@ if (pin != 1234) {
 
     if (pin != 1234) {
       System.out.println("PIN yang Anda masukkan salah.");
-      System.out.println("Kartu ATM Anda telah diblokir.");
+      System.out.println("Kartu ATM Anda terblokir.");
     } else {
       System.out.println("PIN yang Anda masukkan benar.");
     }
