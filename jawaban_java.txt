@@ -82,3 +82,4 @@ tarif = perKm * Math.floor(jarak);
 System.out.printf("Tarif pengiriman = Rp.%,.2f", tarif);
     
 -------------------------------------------------------------
+ 
