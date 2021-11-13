@@ -55,3 +55,30 @@ if (paket == 'A' && jamPemakaian <= 20) {
 System.out.printf("Total tagihan = Rp.%,.2f", totalTagihan);
 
 -------------------------------------------------------------
+
+----------------- Berat Jarak Tarif perKm -----------------
+
+int perKm;
+double berat, jarak, tarif;
+Scanner input = new Scanner(System.in);
+
+System.out.print("Masukkan berat paket Anda (kg): ");
+berat = input.nextDouble();
+
+System.out.print("Masukkan jarak pengiriman (km): ");
+jarak = input.nextDouble();
+
+if (berat > 0 && berat <= 2) {
+  perKm = 1500;
+} else if (berat > 2 && berat <= 6) {
+  perKm = 3000;
+} else if (berat > 6 && berat <= 10) {
+  perKm = 5000;
+} else {
+  perKm = 5500;
+}
+
+tarif = perKm * Math.floor(jarak);
+System.out.printf("Tarif pengiriman = Rp.%,.2f", tarif);
+    
+-------------------------------------------------------------
