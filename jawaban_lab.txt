@@ -1,3 +1,6 @@
+JANGAN LUPA: import java.util.Scanner;
+
+
 ----------------- Pokoknya yang ada x1, x2 -----------------
 
 int a, b, c;
@@ -81,4 +84,37 @@ if (berat > 0 && berat <= 2) {
 tarif = perKm * Math.floor(jarak);
 System.out.printf("Tarif pengiriman = Rp.%,.2f", tarif);
     
+-------------------------------------------------------------
+
+----------------- PIN ATM -----------------------------------
+
+int pin;
+Scanner input = new Scanner(System.in);
+
+System.out.print("Masukkan PIN Anda: ");
+pin = input.nextInt();
+
+if (pin != 1234) {
+  System.out.println("PIN yang Anda masukkan salah.");
+  System.out.print("Masukkan kembali PIN Anda: ");
+  pin = input.nextInt();
+
+  if (pin != 1234) {
+    System.out.println("PIN yang Anda masukkan salah.");
+    System.out.print("Masukkan kembali PIN Anda: ");
+    pin = input.nextInt();
+
+    if (pin != 1234) {
+      System.out.println("PIN yang Anda masukkan salah.");
+      System.out.println("Kartu ATM Anda telah diblokir.");
+    } else {
+      System.out.println("PIN yang Anda masukkan benar.");
+    }
+  } else {
+    System.out.println("PIN yang Anda masukkan benar.");
+  }
+} else {
+  System.out.println("PIN yang Anda masukkan benar.");
+}
+
 -------------------------------------------------------------
