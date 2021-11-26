@@ -1,1 +1,29 @@
-fsdafsa
+-----------------------------------------------------------------------
+public static void main(String[] args) {
+    int count = 0;
+    double angka = 0, jumlah = 0;
+    double maksimum = Double.MIN_VALUE, minimum = Double.MAX_VALUE;
+    Scanner keyboard = new Scanner(System.in);
+
+    System.out.print("Masukkan angka floating point positif (-1 untuk mengakhiri): ");
+    angka = keyboard.nextDouble();
+
+    while (angka != -1) {
+      maksimum = Math.max(maksimum, angka);
+      minimum = Math.min(minimum, angka);
+      jumlah += angka;
+
+      System.out.print("Masukkan angka floating point positif (-1 untuk mengakhiri): ");
+      angka = keyboard.nextDouble();
+
+      count += 1;
+    }
+
+    if (count > 0) {
+      System.out.println("Rata-rata = " + (jumlah / count));
+      System.out.println("Maksimum = " + maksimum);
+      System.out.println("Minimum = " + minimum);
+      System.out.println("Selisih Maks dan Min = " + (maksimum - minimum));
+    }
+}
+-----------------------------------------------------------------------
