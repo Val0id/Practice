@@ -58,9 +58,53 @@ public static void main(String[] args) {
 -----------------------------------------------------------------------
 
 -----------------------------------------------------------------------
+public static void main(String[] args) {
+    int count = 0, jumlah, tiket = 10;
 
+    Scanner keyboard = new Scanner(System.in);
+
+    while (tiket > 0) {
+        System.out.print("Masukkan jumlah tiket yang ingin dibeli: ");
+        jumlah = keyboard.nextInt();
+        while (jumlah > 4) {
+            System.out.println("Anda tidak bisa membeli lebih dari 4 tiket.");
+            System.out.print("Masukkan jumlah tiket yang ingin dibeli: ");
+            jumlah = keyboard.nextInt();
+        }
+        while (tiket < jumlah) {
+            System.out.printf("Maaf, sisa tiket yang tersisa adalah %d tiket.\n", tiket);
+            System.out.print("Masukkan jumlah tiket yang ingin dibeli: ");
+            jumlah = keyboard.nextInt();
+        }
+
+        tiket -= jumlah;
+        count += 1;
+
+        System.out.printf("Anda membeli sebanyak %d tiket.\n", jumlah);
+        if (tiket > 0) {
+            System.out.printf("Sisa tiket yang tersedia: %d\n", tiket);
+        }
+    }
+
+    System.out.printf("Semua tiket telah terjual kepada %d pembeli.", count);
+}
 -----------------------------------------------------------------------
 
 -----------------------------------------------------------------------
+public static void main(String[] args) {
+    int bilangan;
 
+    Scanner keyboard = new Scanner(System.in);
+
+    System.out.print("Masukkan sebuah bilangan asli: ");
+    bilangan = keyboard.nextInt();
+
+    for (int i = 2; i <= bilangan; i++) {
+        if (bilangan % i == 0) {
+            System.out.println(i);
+            bilangan = bilangan / i;
+            i--;
+        }
+    }
+}
 -----------------------------------------------------------------------
