@@ -1,0 +1,67 @@
+----------- Hitung Vokal -----------
+public static int hitungVokal(String text) {
+  String hurufVokal = "aiueoAIUEO";
+  int jumlahHurufVokal = 0;
+
+  for (int i = 0; i < text.length(); i++) {
+    for (int j = 0; j < hurufVokal.length(); j++) {
+      if (text.charAt(i) == hurufVokal.charAt(j)) {
+        jumlahHurufVokal += 1;
+      }
+    }
+  }
+
+  return jumlahHurufVokal;
+}
+------------------------------------
+
+------------ 3 Methods -------------
+public static int firstDigit(int num) {
+  while (num >= 10) {
+    num /= 10;
+  }
+
+  return num;
+}
+
+public static int lastDigit(int num) {
+  return num % 10;
+}
+
+public static int banyakDigit(int num) {
+  int x = String.valueOf(num).length();
+
+  return x;
+}
+------------------------------------
+
+------------- Deposito -------------
+public static double hitungPresentValue(double futureVal, double bunga, int jangkaWaktu) {
+  double p = futureVal / Math.pow(1 + bunga, jangkaWaktu);
+  return p;
+}
+------------------------------------
+
+-------------- Hitung --------------
+public static double hitungRatarata(double n1, double n2, double n3, double n4, double n5) {
+  return (n1 + n2 + n3 + n4 + n5) / 5;
+}
+
+public static char tentukanGrade(double rr) {
+  char grade = 'X';
+
+  if (rr >= 90) {
+    grade = 'A';
+  } else if (rr < 90 && rr >= 80) {
+    grade = 'B';
+  } else if (rr < 80 && rr >= 70) {
+    grade = 'C';
+  } else if (rr < 70 && rr >= 60) {
+    grade = 'D';
+  } else if (rr < 60) {
+    grade = 'E';
+  }
+
+  return grade;
+}
+------------------------------------
