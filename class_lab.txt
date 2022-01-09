@@ -1,0 +1,175 @@
+----------------------------- Karyawan -----------------------------
+public class Karyawan {
+	private String nama;
+	private int nomorId;
+	private String departemen;
+	private String posisi;
+	
+	public Karyawan() {
+		this.nama = "";
+		this.nomorId = 0;
+		this.departemen = "";
+		this.posisi = "";
+	}
+	
+	public Karyawan(String nama, int nomorId) {
+		this.nama = nama;
+		this.nomorId = nomorId;
+		this.departemen = "";
+		this.posisi = "";
+	}
+	
+	public Karyawan(String nama, int nomorId, String departemen, String posisi) {
+		this.nama = nama;
+		this.nomorId = nomorId;
+		this.departemen = departemen;
+		this.posisi = posisi;
+	}
+	
+	public void setNama(String nama) {
+		this.nama = nama;
+	}
+	
+	public void setNomorId(int noId) {
+		this.nomorId = noId;
+	}
+	
+	public void setDepartemen(String dept) {
+		this.departemen = dept;
+	}
+	
+	public void setPosisi(String pos) {
+		this.posisi = pos;
+	}
+	
+	public String getNama() {
+		return this.nama;
+	}
+	
+	public int getNomorId() {
+		return this.nomorId;
+	}
+	
+	public String getDepartemen() {
+		return this.departemen;
+	}
+	
+	public String getPosisi() {
+		return this.posisi;
+	}
+}
+----------------------------- Mahasiswa -----------------------------
+public class Mahasiswa {
+	private String nama;
+	private int totalSkor;
+	private int banyakKuis;
+	
+	public Mahasiswa(String nama) {
+		this.nama = nama;
+		this.totalSkor = 0;
+		this.banyakKuis = 0;
+	}
+	
+	public void addSkor(int skor) {
+		this.totalSkor += skor;
+		this.banyakKuis += 1;
+	}
+	
+	public String getNama() {
+		return this.nama;
+	}
+	
+	public int getTotalSkor() {
+		return this.totalSkor;
+	}
+	
+	public double getAverageSkor() {
+		return (double) this.totalSkor / this.banyakKuis;
+	}
+}
+----------------------------- Mahasiswa -----------------------------
+
+----------------------------- Rekening Bank -----------------------------
+public class RekeningBank 
+{
+	
+	private double saldo;
+	private static int noRekTerakhir = 1000;
+	private int nomorRekening;
+	
+	public RekeningBank()
+	{
+		saldo = 0.0;
+		this.nomorRekening = this.noRekTerakhir += 1;
+	}
+	
+	public RekeningBank(double saldoAwal)
+	{
+		saldo = saldoAwal;
+		this.nomorRekening = this.noRekTerakhir += 1;
+	}
+
+	public void deposit(double jumlah)
+	{
+		saldo = saldo + jumlah;
+	}
+
+	public void withdraw(double jumlah)
+	{
+		if (saldo >= jumlah)
+		{
+			saldo = saldo - jumlah;
+		} 
+		else
+		{
+			System.out.println("Dana tidak mencukupi.");
+		}
+	}
+
+	public void setSaldo(double s)
+	{
+		saldo = s;
+	}
+
+	public double getSaldo()
+	{
+		return saldo;
+	}
+	
+	public int getNomorRekening() {
+		return this.nomorRekening;
+	}
+	
+}
+----------------------------- Rekening Bank -----------------------------
+
+----------------------------- Line -----------------------------
+public class Line {
+	private final Point p1;
+	private final Point p2;
+	
+	public Line(Point p1, Point p2) {
+		this.p1 = p1;
+		this.p2 = p2;
+	}
+	
+	public Point getP1() {
+		return this.p1;
+	}
+	
+	public Point getP2() {
+		return this.p2;
+	}
+	
+	public String toString() {
+		return String.format("[%s, %s]", this.p1.toString(), this.p2.toString());
+	}
+	
+	public double getSlope() {
+		double a = this.p2.getY() - this.p1.getY();
+		double b = this.p2.getX() - this.p1.getX();
+		
+		return a / b;
+	}
+}
+----------------------------- Line -----------------------------
