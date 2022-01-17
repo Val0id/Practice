@@ -1,0 +1,207 @@
+public abstract class Biner {
+    private double op1;
+    private double op2;
+
+    public void setOp1(double op1) {
+        this.op1 = op1;
+    }
+
+    public double getOp1() {
+        return this.op1;
+    }
+
+    public void setOp2(double op2) {
+        this.op2 = op2;
+    }
+
+    public double getOp2() {
+        return this.op2;
+    }
+
+    public abstract double hitung();
+}
+
+public class Kali extends Biner {
+    public Kali(double op1, double op2) {
+        super.setOp1(op1);
+        super.setOp2(op2);
+    }
+
+    public double hitung() {
+        return super.getOp1() * super.getOp2();
+    }
+
+    public String toString() {
+        return super.getOp1() + " * " + super.getOp2();
+    }
+}
+
+public class Kapal {
+    private String nama;
+    private int tahunPembuatan;
+
+    public Kapal(String nama, int tahunPembuatan) {
+        this.nama = nama;
+        this.tahunPembuatan = tahunPembuatan;
+    }
+
+    public String getNama() {
+        return this.nama;
+    }
+
+    public int getTahunPembuatan() {
+        return this.tahunPembuatan;
+    }
+
+    public String toString() {
+        return "Nama: " + this.nama +"\nTahun Pembuatan: " + this.tahunPembuatan;
+    }
+}
+
+public class KapalKargo extends Kapal {
+    private int kapasitasAngkut;
+
+    public KapalKargo(String nama, int tahunPembuatan, int kapasitasAngkut) {
+        super(nama, tahunPembuatan);
+        this.kapasitasAngkut = kapasitasAngkut;
+    }
+
+    public int getKapasitasAngkut() {
+        return this.kapasitasAngkut;
+    }
+
+    public String toString() {
+        return "Nama: " + super.getNama() + "\nKapasitas Angkut: " + this.getKapasitasAngkut();
+    }
+}
+
+public class KapalPesiar extends Kapal {
+    private int maksPenumpang;
+
+    public KapalPesiar(String nama, int tahunPembuatan, int maksPenumapng) {
+        super(nama, tahunPembuatan);
+        this.maksPenumpang = maksPenumapng;
+    }
+
+    public int getMaksPenumpang() {
+        return this.maksPenumpang;
+    }
+
+    public String toString() {
+        return "Nama: " + super.getNama() + "\nMaks. Penumpang: " + this.getMaksPenumpang();
+    }
+}
+
+public class Pegawai
+{
+    private String nama;
+    private double gajiPokok;
+
+    public Pegawai(String nama, double gajiPokok)
+    {
+        this.nama = nama;
+        this.gajiPokok = gajiPokok;
+    }
+
+    public String getNama()
+    {
+        return nama;
+    }
+
+    public double getGaji()
+    {
+        return gajiPokok;
+    }
+}
+
+public class PegawaiHonorer extends Pegawai {
+    private double honorPerJam;
+    private double jamKerja;
+
+    public PegawaiHonorer(String nama, double honorPerJam, double jamKerja) {
+        super(nama, 0);
+        this.honorPerJam = honorPerJam;
+        this.jamKerja = jamKerja;
+    }
+
+    public double getGaji() {
+        return this.honorPerJam * this.jamKerja;
+    }
+}
+
+public class RekeningBank
+{
+    private String nomorRekening;
+    private double saldo;
+
+    public RekeningBank(String nomorRekening, double saldo)
+    {
+        this.nomorRekening = nomorRekening;
+        this.saldo = saldo;
+    }
+
+    public String getNomorRekening()
+    {
+        return nomorRekening;
+    }
+
+    public double getSaldo()
+    {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo)
+    {
+        this.saldo = saldo;
+    }
+
+    public void deposit(double jumlah)
+    {
+        saldo = saldo + jumlah;
+    }
+
+    public void withdraw(double jumlah)
+    {
+        if (saldo >= jumlah)
+        {
+            saldo = saldo - jumlah;
+        }
+        else
+        {
+            System.out.println("Dana tidak mencukupi.");
+        }
+    }
+}
+
+public class RekeningMinMax extends RekeningBank {
+    private double saldoMax;
+    private double saldoMin;
+
+    public RekeningMinMax(String nomorRekening, double saldo) {
+        super(nomorRekening, saldo);
+        this.saldoMax = saldo;
+        this.saldoMin = saldo;
+    }
+
+    public double getSaldoMax() {
+        return this.saldoMax;
+    }
+
+    public double getSaldoMin() {
+        return this.saldoMin;
+    }
+
+    public void deposit(double jumlah) {
+        super.deposit(jumlah);
+        if (super.getSaldo() > this.saldoMax) {
+            this.saldoMax = super.getSaldo();
+        }
+    }
+
+    public void withdraw(double jumlah) {
+        super.withdraw(jumlah);
+        if (super.getSaldo() < this.saldoMin) {
+            this.saldoMin = super.getSaldo();
+        }
+    }
+}
